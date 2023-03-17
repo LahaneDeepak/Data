@@ -1,6 +1,22 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:1.0.5', '.' ]
+  args: [ 'build', '-t', 'us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:${COMMIT_SHA}', '.' ]
 images:
-- 'us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:1.0.5'
+- 'us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:${COMMIT_SHA}'
 
+# Push the container image
+
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:${COMMIT_SHA}']
+# Create release in Google Cloud Deploy
+
+
+- name: gcr.io/google.com/cloudsdktool/cloud-sdk
+  entrypoint: gcloud
+  args:
+    [
+      "deploy", "releases", "create", "rel-${SHORT_SHA}",
+      "--delivery-pipeline", "gitops",
+      "--region", "asia-east1",
+      "--annotations", "commitId=${REVISION_ID}",
+      "--images", "clouddeploy-image=us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:${COMMIT_SHA}"
