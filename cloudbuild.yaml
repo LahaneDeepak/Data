@@ -20,3 +20,4 @@ images:
       "--region", "us-central1",
       "--annotations", "commitId=${REVISION_ID}",
       "--images", "webserver=us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:${COMMIT_SHA}"
+   ]
