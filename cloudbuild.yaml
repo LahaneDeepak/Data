@@ -19,4 +19,4 @@ images:
       "--delivery-pipeline", "gitops",
       "--region", "asia-east1",
       "--annotations", "commitId=${REVISION_ID}",
-      "--images", "clouddeploy-image=us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:${COMMIT_SHA}"
+      "--images", "webserver=us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:${COMMIT_SHA}"
