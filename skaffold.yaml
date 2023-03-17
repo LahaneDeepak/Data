@@ -1,5 +1,10 @@
 apiVersion: skaffold/v2beta16
 kind: Config
+build:
+  artifacts:
+  - image: us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver
+    docker:
+      dockerfile: Dockerfile
 deploy:
   kubectl:
     manifests:
