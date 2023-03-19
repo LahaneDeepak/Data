@@ -21,6 +21,4 @@ steps:
       "deploy", "releases", "create", "rel-${SHORT_SHA}",
       "--delivery-pipeline", "hello-world-app",
       "--region", "us-central1",
-      "--annotations", "commitId=${REVISION_ID}",
-      "--images", "us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:${COMMIT_SHA}"
     ]
