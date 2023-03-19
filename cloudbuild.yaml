@@ -10,6 +10,6 @@ steps:
     --delivery-pipeline=hello-world-app \
     --region=us-centra1 \
     --annotations=commitId=${REVISION_ID} \
-    --images=us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:1.0.6
+    --images='us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:1.0.6'
 images:
 - 'us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:1.0.6'
