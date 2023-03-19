@@ -8,7 +8,7 @@ images:
   entrypoint: gcloud
   args:
     [
-      "deploy", "releases", "create", "release}",
+      "deploy", "releases", "create", "release",
       "--delivery-pipeline", "hello-world-app",
       "--region", "us-centra1",
       "--annotations", "commitId=${REVISION_ID}",
