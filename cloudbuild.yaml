@@ -4,9 +4,10 @@ steps:
 images:
 - 'us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:1.0.6'
 
-- name: gcr.io/google.com/cloudsdktool/cloud-sdk
-  entrypoint: gcloud
+- name: 'gcr.io/cloud-builders/gke-deploy
   args:
-    [ 'deploy', 'releases', 'create', 'release05', '--delivery-pipeline=hello-world-app', '--region=us-centra1' ]
-images:
-- us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:1.0.6
+    - run
+    - --filename=k8s/*
+    - --images=us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:1.0.6
+    - --location=us-centra1,
+    - --cluster=quickstart-cluster-qsdev
