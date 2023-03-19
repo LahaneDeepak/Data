@@ -4,7 +4,7 @@ steps:
 images:
 - 'us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:1.0.6'
 
-- name: 'gcr.io/cloud-builders/gke-deploy
+- name: 'gcr.io/cloud-builders/gke-deploy'
   args:
     - run
     - --filename=k8s/*
