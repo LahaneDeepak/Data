@@ -3,14 +3,14 @@
 steps:
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '.', '-t', 'us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:${COMMIT_SHA}', '-f', 'Dockerfile']
+  args: ['build', '.', '-t', 'us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:1.0.6', '-f', 'Dockerfile']
 
 
 # Push the container image
 
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:${COMMIT_SHA}']
+  args: ['push', 'us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:1.0.6']
 # Create release in Google Cloud Deploy
 
 
@@ -23,4 +23,4 @@ steps:
       "--region", "us-central1",
     ]
 images:
-- 'us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:${COMMIT_SHA}'  
+- 'us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:1.0.6'
