@@ -13,6 +13,5 @@ spec:
     spec:
       containers:
       - name: hello-world-app
-        image: us-central1-docker.pkg.dev/fair-feat-379308/quickstart-docker-repo/webserver:${COMMIT_SHA}
         ports:
           - containerPort: 80
